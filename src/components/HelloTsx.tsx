@@ -16,11 +16,13 @@ function useClick() {
 function HelloTsx(props: { msg: string }) {
   const { myCount, clickFunc } = useClick();
 
-  const { msg } = props;
+  const { msg } = toRefs(props);
+
   return () => {
     return (
       <div>
-        {msg} + {myCount.value} <button onClick={clickFunc}>click me</button>
+        {msg.value} + {myCount.value}{' '}
+        <button onClick={clickFunc}>click me</button>
       </div>
     );
   };
